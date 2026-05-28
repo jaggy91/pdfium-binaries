@@ -66,6 +66,11 @@ mkdir -p "$BUILD"
         echo 'use_custom_libcxx_for_host = false'
       fi
       ;;
+    win)
+      # Enable experimental Win32 GDI APIs (exports FPDF_SetPrintTextWithGDI).
+      # Same flag Chrome uses in build_overrides/pdfium.gni.
+      echo "pdf_use_win32_gdi = true"
+      ;;
   esac
 
   case "$TARGET_ENVIRONMENT" in
